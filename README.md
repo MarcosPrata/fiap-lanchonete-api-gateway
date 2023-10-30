@@ -14,7 +14,7 @@ Os seguintes repositórios também fazem parte desse projeto:
 
 > [fiap-lanchonete-api](https://github.com/MarcosPrata/fiap-lanchonete-api) - API core responsável por registrar e acompanhar pedidos e usuários.
 
-> [fiap-lanchonete-lambda-authorizer](https://github.com/arcotech-services/onb-student-import-template-lambda) - Reponsável por autenticar e autorizar as chamadas requests dos usuários.
+> [fiap-lanchonete-lambda-authorizer](https://github.com/MarcosPrata/fiap-lanchonete-lambda-authorizer) - Reponsável por autenticar e autorizar as chamadas requests dos usuários.
 
 ## 🚀 Quick Start
 

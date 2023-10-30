@@ -50,27 +50,3 @@ paths:
         uri: "ENV_AUTHORIZATION_LAMBDA"
         type: "aws_proxy"
 
-  # /api/**:
-  #   get:
-  #     tags:
-  #       - all
-  #     operationId: TemplateSpreadsheet
-  #     description: Generate import spreadsheet template
-  #     summary: Generate import spreadsheet template
-  #     parameters:
-  #       - in: query
-  #         name: institutionId
-  #         required: true
-  #       - in: query
-  #         name: importType
-  #         required: true
-  #     responses:
-  #       "200":
-  #         description: "200 response"
-  #     x-amazon-apigateway-integration:
-  #       httpMethod: "POST"
-  #       uri: "ENV_AUTHORIZATION_LAMBDA"
-  #       responses:
-  #         ".*":
-  #           statusCode: "200"
-  #       type: "aws_proxy"
