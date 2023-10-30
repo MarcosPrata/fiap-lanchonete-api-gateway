@@ -1,5 +1,8 @@
 # fiap-lanchonete-api-gateway
 
+![Turma](https://img.shields.io/badge/👨🏻‍🏫_Turma-SOAT2-blue?style=for-the-badge)
+![Equipe](https://img.shields.io/badge/🧑🏻‍💻_equipe-20-blue?style=for-the-badge)
+
 [![API Gateway](https://img.shields.io/badge/API_Gateway-aws-%23FF9900?style=for-the-badge&logo=amazonapigateway&logoColor=white)](https://docs.aws.amazon.com/pt_br/apigateway/latest/developerguide/welcome.html)
 
 [![Localstack](https://img.shields.io/badge/aws-Localstack-%236b82f6?style=for-the-badge&&logo=amazonaws&logoColor=white)](https://github.com/localstack)
@@ -50,3 +53,35 @@ Para trabalhar em ambiente local é necessário:
 ## 📤 Deploy
 
 Temos o githuba actions configurado, de modo que qualquer push na main dentro da pasta api realizará o deploy do API Gateway na AWS.
+
+## 🎓 Integrantes / Devs
+
+> Nome: Marcos Henrique Prata Junior 
+> 
+> Matrícula: RM349949
+> 
+> [![Linkedin](https://img.shields.io/badge/Linkedin-0E76A8.svg?style=for-the-badge&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/marcos-henrique-prata-junior/)
+> [![GitHub](https://img.shields.io/badge/GitHub-333.svg?style=for-the-badge&logo=GitHub&logoColor=white)](https://github.com/MarcosPrata)
+
+> Nome: Marcos Moreira
+>
+> Matrícula: RM349544
+>
+> [![Linkedin](https://img.shields.io/badge/Linkedin-0E76A8.svg?style=for-the-badge&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/moreira-dev/)
+> [![GitHub](https://img.shields.io/badge/GitHub-333.svg?style=for-the-badge&logo=GitHub&logoColor=white)](https://github.com/MarcosPotato)
+
+
+> Nome: Marcelo Gonçalves de Barros
+>
+> Matrícula: RM349535
+>
+> [![Linkedin](https://img.shields.io/badge/Linkedin-0E76A8.svg?style=for-the-badge&logo=Linkedin&logoColor=white)]()
+> [![GitHub](https://img.shields.io/badge/GitHub-333.svg?style=for-the-badge&logo=GitHub&logoColor=white)]()
+
+
+> Nome: Henrique de Paula Leite
+>
+> Matrícula: RM350046
+>
+> [![Linkedin](https://img.shields.io/badge/Linkedin-0E76A8.svg?style=for-the-badge&logo=Linkedin&logoColor=white)]()
+> [![GitHub](https://img.shields.io/badge/GitHub-333.svg?style=for-the-badge&logo=GitHub&logoColor=white)]()
