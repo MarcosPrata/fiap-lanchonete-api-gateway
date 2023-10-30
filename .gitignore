@@ -1,0 +1,8 @@
+# Terraform Files
+.terraform/.terraform
+.terraform/.terraform.lock.hcl
+
+#Script Files
+api_gateway_resources.txt
+nohup.out
+.DS_Store

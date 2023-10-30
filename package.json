@@ -1,0 +1,14 @@
+{
+  "name": "fiap-lanchonete-api-gateway",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:MarcosPrata/fiap-lanchonete-api-gateway.git",
+  "author": "Marcos Prata <mhpjunior3@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "localstack:run": "docker-compose up --build localstack",
+    "localstack:apigateway:create": "bash scripts/create_api_gateway.sh",
+    "localstack:apigateway:update": "bash scripts/update_api_gateway.sh",
+    "localstack:apigateway:resources": "bash scripts/api_gateway_resources.sh"
+  }
+}

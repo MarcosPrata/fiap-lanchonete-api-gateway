@@ -1,0 +1,76 @@
+swagger: "2.0"
+info:
+  description: API Gateway fluxo de importação em massa
+  version: "2023-01-31T12:43:59Z"
+  title: onb-apigateway
+schemes:
+  - https
+paths:
+  /api/health:
+    get:
+      description: Show status
+      produces:
+        - "text/html"
+      responses:
+        "200":
+          description: "200 response"
+          headers:
+            Content-Type:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: 200
+            responseParameters:
+              method.response.header.Content-Type: "'text/html'"
+            responseTemplates:
+              text/html: "Up"
+        requestTemplates:
+          application/json: '{"status": "Up"}'
+        passthroughBehavior: "when_no_match"
+        type: mock
+
+  /api/login:
+    post:
+      tags:
+        - users
+      operationId: login
+      summary: User Login
+      parameters:
+      - in: body
+        name: requestBody
+        required: true
+        schema:
+          type: object
+          properties:
+            cpf:
+              type: string
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "ENV_AUTHORIZATION_LAMBDA"
+        type: "aws_proxy"
+
+  # /api/**:
+  #   get:
+  #     tags:
+  #       - all
+  #     operationId: TemplateSpreadsheet
+  #     description: Generate import spreadsheet template
+  #     summary: Generate import spreadsheet template
+  #     parameters:
+  #       - in: query
+  #         name: institutionId
+  #         required: true
+  #       - in: query
+  #         name: importType
+  #         required: true
+  #     responses:
+  #       "200":
+  #         description: "200 response"
+  #     x-amazon-apigateway-integration:
+  #       httpMethod: "POST"
+  #       uri: "ENV_AUTHORIZATION_LAMBDA"
+  #       responses:
+  #         ".*":
+  #           statusCode: "200"
+  #       type: "aws_proxy"

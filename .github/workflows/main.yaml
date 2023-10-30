@@ -1,0 +1,58 @@
+name: main
+
+on:
+  workflow_call:
+    inputs:
+      id_api_gateway:
+        required: true
+        type: string
+      stage_name:
+        required: true
+        type: string
+      region:
+        required: true
+        type: string
+      path_contract:
+        required: true 
+        type: string
+      env_file:
+        required: true 
+        type: string
+      environment:
+        required: false
+        type: string
+    secrets:
+      CI_AWS_ACCESS_KEY_ID:
+        required: true
+      CI_AWS_SECRET_ACCESS_KEY:
+        required: true
+
+jobs:
+  deploy:
+    environment:
+      name: ${{ inputs.environment }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.CI_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.CI_AWS_SECRET_ACCESS_KEY }}
+          aws-region: "us-east-1"
+
+      - name: Check out code
+        uses: actions/checkout@v2    
+
+      - name: Set Contract Environment Variables
+        run: |
+          chmod +x ./scripts/use_envs.sh
+          ./scripts/use_envs.sh "${{ inputs.path_contract }}" "${{ inputs.env_file }}"
+        shell: bash
+
+      - name: Update Contract Api Gateway
+        run: |
+          aws apigateway put-rest-api --rest-api-id ${{ inputs.id_api_gateway }} --mode overwrite --body 'fileb://${{ inputs.path_contract }}'
+
+      - name: Deployment Api Gateway
+        run: |
+          aws apigateway create-deployment --region ${{ inputs.region }} --rest-api-id ${{ inputs.id_api_gateway }} --stage-name ${{ inputs.stage_name }}
