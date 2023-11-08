@@ -43,7 +43,9 @@ jobs:
       - name: Set Contract Environment Variables
         run: |
           chmod +x ./scripts/use_envs.sh
-          ./scripts/use_envs.sh "${{ inputs.path_contract }}" "${{ inputs.env_file }}"
+          ./scripts/use_envs.sh "${{ inputs.path_contract }}" "${{ inputs.env_file }}" 
+          rm -rf ${{ inputs.path_contract }}
+          cp "build_gateway.yml" ${{ inputs.path_contract }}
         shell: bash
 
       - name: Update Contract Api Gateway

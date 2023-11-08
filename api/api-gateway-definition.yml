@@ -6,7 +6,7 @@ servers:
 - url: "https://0v0ejb40t3.execute-api.us-east-1.amazonaws.com/{basePath}"
   variables:
     basePath:
-      default: "ENV_ENVIRONMENT"
+      default: "ENV_STAGE"
 paths:
   /{proxy+}:
     x-amazon-apigateway-any-method:
