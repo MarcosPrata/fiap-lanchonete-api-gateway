@@ -1,4 +1,4 @@
-name: 📦🚀 Deploy Api Gateway Production
+name: 📦🚀 Deploy Api Gateway Staging
 
 on:
   push:
