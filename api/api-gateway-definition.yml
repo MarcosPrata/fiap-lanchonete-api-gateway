@@ -47,6 +47,6 @@ paths:
               type: string
       x-amazon-apigateway-integration:
         httpMethod: "POST"
-        uri: "ENV_AUTHORIZATION_LAMBDA"
+        uri: "ENV_AUTHORIZATION_LAMBDA_ARN"
         type: "aws_proxy"
 
