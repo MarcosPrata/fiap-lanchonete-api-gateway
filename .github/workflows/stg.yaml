@@ -3,7 +3,7 @@ name: 📦🚀 [Staging] Api Gateway
 on:
   push:
     branches:
-      - develop
+      - main
     paths:
       - 'api/**'
   workflow_dispatch:
