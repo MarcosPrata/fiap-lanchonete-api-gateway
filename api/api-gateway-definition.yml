@@ -13,7 +13,7 @@ paths:
           type: "string"
       x-amazon-apigateway-integration:
         httpMethod: "ANY"
-        uri: "https://www.google.com/search?q=teste"
+        uri: "https://www.google.com/search?q=teste1"
         responses:
           default:
             statusCode: "200"
