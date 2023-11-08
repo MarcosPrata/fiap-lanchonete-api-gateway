@@ -14,7 +14,7 @@ jobs:
     with:
       app_env: "stg"
       aws_region: "us-east-1"
-      id_api_gateway: "lanchonete-api-gateway-stg"
+      id_api_gateway: "lanchonete-apigateway-stg"
       path_contract: api/api-gateway-definition.yml
       env_file: api/staging.env
     secrets:

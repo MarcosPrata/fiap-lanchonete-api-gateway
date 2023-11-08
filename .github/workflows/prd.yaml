@@ -14,7 +14,7 @@ jobs:
     with:
       app_env: "prod"
       aws_region: "us-east-1"
-      id_api_gateway: "lanchonete-api-gateway-prd"
+      id_api_gateway: "lanchonete-apigateway-prd"
       path_contract: api/api-gateway-definition.yml
       env_file: api/production.env
     secrets:

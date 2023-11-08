@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   description: API Gateway
   version: "2023-01-31T12:43:59Z"
-  title: onb-apigateway
+  title: lanchonete-apigateway-stg
 schemes:
   - https
 paths:
