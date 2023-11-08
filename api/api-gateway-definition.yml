@@ -1,52 +1,27 @@
-swagger: "2.0"
+openapi: "3.0.1"
 info:
-  description: API Gateway
-  version: "2023-01-31T12:43:59Z"
-  title: lanchonete-apigateway-stg
-schemes:
-  - https
+  title: "lanchonete-apigateway-ENV_ENVIRONMENT"
+  version: "2023-11-08T05:56:38Z"
+servers:
+- url: "https://0v0ejb40t3.execute-api.us-east-1.amazonaws.com/{basePath}"
+  variables:
+    basePath:
+      default: "ENV_ENVIRONMENT"
 paths:
-  /api/health:
-    get:
-      description: Show status
-      produces:
-        - "text/html"
-      responses:
-        "200":
-          description: "200 response"
-          headers:
-            Content-Type:
-              type: "string"
-      x-amazon-apigateway-integration:
-        responses:
-          default:
-            statusCode: 200
-            responseParameters:
-              method.response.header.Content-Type: "'text/html'"
-            responseTemplates:
-              text/html: "Up"
-        requestTemplates:
-          application/json: '{"status": "Up"}'
-        passthroughBehavior: "when_no_match"
-        type: mock
-
-  /api/login:
-    post:
-      tags:
-        - users
-      operationId: login
-      summary: User Login
+  /{proxy+}:
+    x-amazon-apigateway-any-method:
       parameters:
-      - in: body
-        name: requestBody
+      - name: "proxy"
+        in: "path"
         required: true
         schema:
-          type: object
-          properties:
-            cpf:
-              type: string
+          type: "string"
       x-amazon-apigateway-integration:
-        httpMethod: "POST"
-        uri: "ENV_AUTHORIZATION_LAMBDA_ARN"
-        type: "aws_proxy"
-
+        httpMethod: "ANY"
+        uri: "https://www.google.com/search?q=teste"
+        responses:
+          default:
+            statusCode: "200"
+        passthroughBehavior: "when_no_match"
+        type: "http_proxy"
+components: {}
