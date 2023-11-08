@@ -1,4 +1,4 @@
-name: 📦🚀 Deploy Api Gateway Production
+name: 📦🚀 [Production] Api Gateway
 
 on:
   push:
@@ -18,5 +18,5 @@ jobs:
       path_contract: api/api-gateway-definition.yml
       env_file: api/production.env
     secrets:
-      CI_AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      CI_AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
