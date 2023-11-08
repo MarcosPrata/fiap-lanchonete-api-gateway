@@ -3,7 +3,7 @@ name: 📦🚀 Deploy Api Gateway Production
 on:
   push:
     branches:
-      - main
+      - develop
     paths:
       - 'api/**'
   workflow_dispatch:
@@ -12,11 +12,11 @@ jobs:
   build-production:
     uses: ./.github/workflows/main.yaml
     with:
-      app_env: "prod"
+      app_env: "stg"
       aws_region: "us-east-1"
-      id_api_gateway: "lanchonete-api-gateway-prd"
+      id_api_gateway: "lanchonete-api-gateway-stg"
       path_contract: api/api-gateway-definition.yml
-      env_file: api/production.env
+      env_file: api/staging.env
     secrets:
-      CI_AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      CI_AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

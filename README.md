@@ -15,6 +15,8 @@ Este projeto serve para gerenciar e versionar alterações no api gateway que se
 
 Os seguintes repositórios também fazem parte desse projeto:
 
+> [fiap-lanchonete-terraform](https://github.com/MarcosPrata/fiap-lanchonete-terraform) - Reponsável por provisionar a infra na AWS.
+
 > [fiap-lanchonete-api](https://github.com/MarcosPrata/fiap-lanchonete-api) - API core responsável por registrar e acompanhar pedidos e usuários.
 
 > [fiap-lanchonete-lambda-authorizer](https://github.com/MarcosPrata/fiap-lanchonete-lambda-authorizer) - Reponsável por autenticar e autorizar as chamadas requests dos usuários.
@@ -52,7 +54,7 @@ Para trabalhar em ambiente local é necessário:
 
 ## 📤 Deploy
 
-Temos o githuba actions configurado, de modo que qualquer push na main dentro da pasta api realizará o deploy do API Gateway na AWS.
+Temos o github actions configurado, de modo que qualquer push na main dentro da pasta api realizará o deploy do API Gateway na AWS para prod, equanto pushs na develop gerarão deploys em staging.
 
 ## 🎓 Integrantes / Devs
 

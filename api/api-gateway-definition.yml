@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: API Gateway fluxo de importação em massa
+  description: API Gateway
   version: "2023-01-31T12:43:59Z"
   title: onb-apigateway
 schemes:

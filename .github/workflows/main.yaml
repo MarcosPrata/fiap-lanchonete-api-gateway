@@ -3,13 +3,13 @@ name: main
 on:
   workflow_call:
     inputs:
+      app_env:
+        required: false
+        type: string
+      aws_region:
+          required: true
+          type: string
       id_api_gateway:
-        required: true
-        type: string
-      stage_name:
-        required: true
-        type: string
-      region:
         required: true
         type: string
       path_contract:
@@ -18,27 +18,24 @@ on:
       env_file:
         required: true 
         type: string
-      environment:
-        required: false
-        type: string
     secrets:
-      CI_AWS_ACCESS_KEY_ID:
+      AWS_ACCESS_KEY_ID:
         required: true
-      CI_AWS_SECRET_ACCESS_KEY:
+      AWS_SECRET_ACCESS_KEY:
         required: true
 
 jobs:
   deploy:
     environment:
-      name: ${{ inputs.environment }}
+      name: ${{ inputs.app_env }}
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.CI_AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.CI_AWS_SECRET_ACCESS_KEY }}
-          aws-region: "us-east-1"
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ inputs.aws_region }}
 
       - name: Check out code
         uses: actions/checkout@v2    
@@ -55,4 +52,4 @@ jobs:
 
       - name: Deployment Api Gateway
         run: |
-          aws apigateway create-deployment --region ${{ inputs.region }} --rest-api-id ${{ inputs.id_api_gateway }} --stage-name ${{ inputs.stage_name }}
+          aws apigateway create-deployment --region ${{ inputs.aws_region }} --rest-api-id ${{ inputs.id_api_gateway }} --stage-name ${{ inputs.app_env }}
