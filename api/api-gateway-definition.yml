@@ -19,4 +19,7 @@ paths:
             statusCode: "200"
         passthroughBehavior: "when_no_match"
         type: "http_proxy"
+      x-amazon-apigateway-authorizer:
+        type: "request"
+        authorizerId: "ENV_AUTHORIZATION_LAMBDA_ARN"
 components: {}
