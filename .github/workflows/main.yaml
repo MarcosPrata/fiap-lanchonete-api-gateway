@@ -9,7 +9,7 @@ on:
       aws_region:
           required: true
           type: string
-      id_api_gateway:
+      api_gateway_name:
         required: true
         type: string
       path_contract:
@@ -40,6 +40,14 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2    
 
+      - name: Get API Gateway ID
+        id: get_api_gateway_id
+        run: |
+          api_gateway_name="${{ inputs.api_gateway_name }}"
+          api_gateway_id=$(aws apigateway get-rest-apis --query "items[?name=='${api_gateway_name}'].id" --output text)
+          echo "::set-output name=api_gateway_id::$api_gateway_id"
+        shell: bash
+
       - name: Set Contract Environment Variables
         run: |
           chmod +x ./scripts/use_envs.sh
@@ -50,8 +58,8 @@ jobs:
 
       - name: Update Contract Api Gateway
         run: |
-          aws apigateway put-rest-api --rest-api-id ${{ inputs.id_api_gateway }} --mode overwrite --body 'fileb://${{ inputs.path_contract }}'
+          aws apigateway put-rest-api --rest-api-id ${{ steps.get_api_gateway_id.outputs.api_gateway_id }} --mode overwrite --body 'fileb://${{ inputs.path_contract }}'
 
       - name: Deployment Api Gateway
         run: |
-          aws apigateway create-deployment --region ${{ inputs.aws_region }} --rest-api-id ${{ inputs.id_api_gateway }} --stage-name ${{ inputs.app_env }}
+          aws apigateway create-deployment --region ${{ inputs.aws_region }} --rest-api-id ${{ steps.get_api_gateway_id.outputs.api_gateway_id }} --stage-name ${{ inputs.app_env }}
