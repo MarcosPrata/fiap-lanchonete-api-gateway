@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-production:
+  build-staging:
     uses: ./.github/workflows/main.yaml
     with:
       app_env: "stg"

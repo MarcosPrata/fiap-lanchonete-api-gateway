@@ -58,7 +58,7 @@ Temos o github actions configurado, de modo que qualquer push na main dentro da 
 
 ## 🎓 Integrantes / Devs
 
-> Nome: Marcos Henrique Prata Junior 
+> Nome: Marcos Henrique Prata Junior
 > 
 > Matrícula: RM349949
 > 
